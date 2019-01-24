@@ -136,15 +136,15 @@ class LinkedList
 
   def reverse_list
     return self if @head.nil? || @tail.nil?
-    node = @tail
+
+    node = @head
     revd_list = LinkedList.new(node.value)
-    count = 2
-    length = size
-    while count <= length
-      node = at(length - count)
-      revd_list.append(node.value)
-      count += 1
+
+    until list_end?(node)
+      node = node.next_node
+      revd_list.prepend(node.value)
     end
+
     revd_list
   end
 
@@ -168,10 +168,10 @@ end
 if $PROGRAM_NAME == __FILE__
   my_list = LinkedList.new(0)
   # p my_list.pop
-  my_list.print_nodes
+  # my_list.print_nodes
   # my_list.append(0)
-  my_list.append(1)
-  my_list.print_nodes
+  # my_list.append(1)
+  # my_list.print_nodes
   # my_list.pop
   # my_list.print_nodes
   # my_list.append(1)
@@ -180,7 +180,7 @@ if $PROGRAM_NAME == __FILE__
   # my_list.pop
   # my_list.print_nodes
   # my_list.print_nodes
-  # my_list.shift
+  my_list.shift
   # my_list.append(1)
   # my_list.append(2)
   # my_list.append(3)
@@ -188,9 +188,9 @@ if $PROGRAM_NAME == __FILE__
   # my_list.append(5)
   # my_list.append(6)
   # my_list.append(7)
-  # my_list.print_nodes
-  # revd = my_list.reverse_list
-  # revd.print_nodes
+  my_list.print_nodes
+  revd = my_list.reverse_list
+  revd.print_nodes
   # my_list.append(1)
   # my_list.append(2)
   # my_list.append(3)
